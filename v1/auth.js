@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 const mysql = require('mysql');
-var mysqlconfig = require('../Variables/mysqlconfig.json');
+const mysqlconfig = require('../Variables/mysqlconfig.json');
 
 var connection = mysql.createConnection(mysqlconfig);
 connection.connect();
