@@ -1,6 +1,7 @@
+#!/usr/bin node
 const express = require('express');
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT;
 //const mysql = require('mysql'); // Not in use at the moment
 
 // IMPORT ALL THE ROUTES

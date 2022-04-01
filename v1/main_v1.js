@@ -31,11 +31,11 @@ app.post('/custom', (req, res) => {
 
 app.get('/reciever', (req, res) => {
     res.status(200).send({
-        's1': status[Finger[0]], 
-        's2': status[Finger[1]], 
-        's3': status[Finger[2]], 
-        's4': status[Finger[3]], 
-        's5': status[Finger[4]]
+        "s1": status["s1"], 
+        "s2": status["s2"], 
+        "s3": status["s3"], 
+        "s4": status["s4"], 
+        "s5": status["s5"]
     })
 });
 
