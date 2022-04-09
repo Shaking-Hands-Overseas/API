@@ -7,9 +7,6 @@ const app = express();
 var status = require('../Variables/status.json')
 var Finger = require('../Variables/Finger.json')
 
-//var auth = require("./auth");
-//app.use("/", auth);
-
 router.post('/servo', (req, res) => {
     Info = req.body;
     status["s1"] = Info["s1"];
