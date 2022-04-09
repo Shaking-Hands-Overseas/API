@@ -1,0 +1,199 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0", 
+      "title": "Shaking Hands Overseas API",
+      "description": "API used to move a hand from the other side of the world using LucasVR glove",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "development-sho.herokuapp.com",
+    "schemes":["https"],
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "1.0",
+        "description": "API Version 1.0. Can only be used by one device at a time"
+      }
+    ],
+    "paths": {
+        "/1/receiver":{
+          "get": {
+            "summary": "Receive the stored sensor data in server",
+            "tags": [
+              "1.0"
+            ],
+            "produces": [
+                "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "Data Received",
+                "examples": {
+                    "application/json": "{\"s1\": \"0\",\n \"s2\": \"1\",\n\"s3\": \"2\",\n\"s4\": \"3\",\n\"s5\": \"4\"}"
+                  },
+                "schema": {
+                  "$ref": "#/definitions/SensorData"
+                }
+                
+              },
+              "401":{
+                "description": "401 Error"
+              },
+              "404":{
+                "description": "404 Error"
+              },
+              "500":{
+                "description": "500 Error"
+              }
+            }
+        }
+        },
+        "/1/servo":{
+            "post": {
+              "summary": "Send sensor data to the server",
+              "description":"Data sent as a JSON file containing each sensor data will be stored as a local variable which you can read using /receiver",
+              "tags": [
+                "1.0"
+              ],
+              "parameters": [
+                {
+                  "name": "Send sensor data to the server",
+                  "in": "body",
+                  "description": "Data sent as a JSON file containing each sensor data will be stored as a local variable which you can read using /receiver",
+                  "required": true,
+                  "schema": {
+                    "$ref": "#/definitions/SensorData"
+                  }
+                }],
+              "responses": {
+                "200": {
+                  "description": "Data Received",
+                  "examples": {
+                      "application/json": "{\"s1\": \"0\",\n \"s2\": \"1\",\n\"s3\": \"2\",\n\"s4\": \"3\",\n\"s5\": \"4\"}"
+                    },
+                  "schema": {
+                    "$ref": "#/definitions/SensorData"
+                  }
+                  
+                },
+                "401":{
+                  "description": "401 Error"
+                },
+                "404":{
+                  "description": "404 Error"
+                },
+                "500":{
+                  "description": "500 Error"
+                }
+              }
+          }
+    },
+    "/1/custom":{
+        "post": {
+          "summary": "Set Custom Data Order",
+          "description":"With this method you can update the order in which data will be received. So you can specify receiving data from s1 to s3 or any other combination",
+          "tags": [
+            "1.0"
+          ],
+          "parameters": [
+            {
+              "name": "Set Custom Data Order",
+              "in": "body",
+              "description": "With this method you can update the order in which data will be received. So you can specify receiving data from s1 to s3 or any other combination",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/OrderData"
+              }
+            }],
+          "responses": {
+            "200": {
+              "description": "Data Received",
+              "examples": {
+                  "application/json": "{\"s1\": \"0\",\n \"s2\": \"1\",\n\"s3\": \"2\",\n\"s4\": \"3\",\n\"s5\": \"4\"}"
+                },
+              "schema": {
+                "$ref": "#/definitions/OrderData"
+              }
+              
+            },
+            "401":{
+              "description": "401 Error"
+            },
+            "404":{
+              "description": "404 Error"
+            },
+            "500":{
+              "description": "500 Error"
+            }
+          }
+      }
+}
+    },
+    "definitions":{
+    "SensorData": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+            "s1": {
+                "type": "integer",
+                "format": "int64"
+              },
+            "s2": {
+            "type": "integer",
+            "format": "int64"
+            },  
+            "s3": {
+            "type": "integer",
+            "format": "int64"
+            },
+            "s4": {
+            "type": "integer",
+            "format": "int64"
+            },
+            "s5": {
+            "type": "integer",
+            "format": "int64"
+            }
+        },
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"]
+  },
+  "OrderData": {
+    "type": "object",
+    "required": [
+      "name"
+    ],
+    "properties": {
+        "F1": {
+        "type": "string",
+        "default": "s1"
+        },
+        "F2": {
+        "type": "string",
+        "default": "s2"
+        },  
+        "F3": {
+        "type": "string",
+        "default": "s3"
+        },
+        "F4": {
+        "type": "string",
+        "default": "s4"
+        },
+        "F5": {
+        "type": "string",
+        "default": "s5"
+        }
+    },
+"schemes": ["http"],
+"consumes": ["application/json"],
+"produces": ["application/json"]
+}
+}
+}
