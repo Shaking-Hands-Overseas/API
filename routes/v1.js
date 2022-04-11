@@ -14,6 +14,8 @@ router.post('/servo', (req, res) => {
     status["s3"] = Info["s3"];
     status["s4"] = Info["s4"];
     status["s5"] = Info["s5"];
+    status["s6"] = Info["s6"];
+    status["s7"] = Info["s7"];
     res.status(200).send(status)
 });
 
@@ -24,6 +26,8 @@ router.post('/custom', (req, res) => {
     Finger["2"] = custom["F3"];
     Finger["3"] = custom["F4"];
     Finger["4"] = custom["F5"];
+    Finger["5"] = custom["F6"];
+    Finger["6"] = custom["F7"];
     res.status(200).send( Finger )
 })
 
@@ -33,7 +37,9 @@ router.get('/receiver', (req, res) => {
         "s2": status[Finger["1"]], 
         "s3": status[Finger["2"]], 
         "s4": status[Finger["3"]], 
-        "s5": status[Finger["4"]]
+        "s5": status[Finger["4"]], 
+        "s6": status[Finger["5"]],
+        "s7": status[Finger["6"]]
     })
 });
 
