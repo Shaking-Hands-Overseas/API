@@ -41,6 +41,8 @@ router.get('/receiver', (req, res) => {
         "s3": status[Finger["2"]], 
         "s4": status[Finger["3"]], 
         "s5": status[Finger["4"]], 
+        "b1": buttons["b1"],
+        "b2": buttons["b2"]
     })
 });
 
