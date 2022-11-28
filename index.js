@@ -5,8 +5,8 @@ const PORT = process.env.PORT;
 //const mysql = require('mysql'); // Not in use at the moment
 
 //Json files
-var status = require('../Variables/status.json')
-var Finger = require('../Variables/Finger.json')
+var status = require('./Variables/status.json')
+var Finger = require('./Variables/Finger.json')
 
 app.use(express.json())
 app.use(function(req, res, next) {
