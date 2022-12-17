@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const PORT = 8080;
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 

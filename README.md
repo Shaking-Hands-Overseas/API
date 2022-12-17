@@ -1,5 +1,4 @@
 # API
-(I am currently working on a better version, you can check it out on the branch "development")
 This API code allows for a connection to be made between two instances of our [Driver](https://github.com/Shaking-Hands-Overseas/SHA-Driver).
 It allows to exchange data between these two in the following manner:
 ```
