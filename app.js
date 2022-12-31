@@ -6,9 +6,13 @@ var logger = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
+const swaggerOptions = {
+  validatorUrl: null,
+  explorer:true
+};
+
 var mainRoute = require('./routes/main')
 var v1Route = require('./routes/v1');
-var usersRouter = require('./routes/auth');
 
 var app = express();
 
@@ -23,7 +27,7 @@ app.use(function(req, res, next) {
 app.use(
   '/api-docs',
   swaggerUi.serve, 
-  swaggerUi.setup(swaggerDocument)
+  swaggerUi.setup(swaggerDocument, swaggerOptions)
 );
 app.use(logger('dev'));
 app.use(express.json());
@@ -33,7 +37,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', mainRoute);
 app.use('/1', v1Route);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

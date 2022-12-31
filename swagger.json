@@ -9,8 +9,8 @@
         "url": "https://opensource.org/licenses/MIT"
       }
     },
-    "host": "development-sho.herokuapp.com",
-    "schemes":["https"],
+    "host": "",
+    "schemes":["http", "https"],
     "basePath": "/",
     "tags": [
       {
